@@ -11,7 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Movie\" />
+    <Content Update="Views\Movie\Add.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Movie\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
