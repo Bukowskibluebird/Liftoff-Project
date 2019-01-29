@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using LiftoffProject.Controllers;
 using LiftoffProject.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace LiftoffProject.Data
 {
@@ -38,6 +40,17 @@ namespace LiftoffProject.Data
         //        return new AppContext(builder.Options);
         //    }
         //}
+
+        public class MovieContextFactory : IDesignTimeDbContextFactory<MovieDbContext>
+        {
+            public MovieContext CreateDbContext(string[] args)
+            {
+                var optionsBuilder = new DbContextOptionsBuilder<MovieContext>();
+                optionsBuilder.UseSqlite("Data Source=blog.db");
+
+                return new BloggingContext(optionsBuilder.Options);
+            }
+        }
 
     }
 }
